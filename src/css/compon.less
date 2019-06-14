@@ -1,0 +1,429 @@
+@import "theme";
+
+/*******************************************  tab  ****************************************/
+.my-tab{
+  display: flex;
+  .my-tab__item{
+    flex: 1;text-align: center;
+    .my-tab__item--content{
+      display:inline-block;height:44px;line-height: 44px;font-size: 16px;color: @color-gray;
+    }
+  }
+  .my-tab__item--active{
+    .my-tab__item--content{
+      color: @color-dark; border-bottom: 2px solid @color-dark;font-weight: 800;
+    }
+  }
+}
+
+/*******************************************  弹出框 - 提示信息 ****************************************/
+.my-tip{}
+.my-tip__panel{  min-width: 250px; max-width: 90vw; background-color: #fff; border-radius: 4px; }
+.my-tip__title{ padding: 20px ; text-align: center ; font-size: 16px; font-weight: 800 ;}
+.my-tip__body{ max-height: 60vh;overflow-y: auto }
+.my-tip__content { padding: 0 20px 10px 20px ; text-align: center ; font-size: 14px ; }
+.my-tip__btn { padding:10px 0 ;text-align: center ; color: @color-theme ; font-size: 16px;font-weight:  800;position: relative }
+.my-tip__btn:after{
+  content: '';  position: absolute;  top: 0;  left: 0;  width: 400%;  height: 400%;  -webkit-transform: scale(0.25);  transform: scale(0.25);  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;  pointer-events: none;  -webkit-box-sizing: border-box;  box-sizing: border-box;  border: 0 solid @color-line;  border-top-width:1px;
+}
+/*******************************************  弹出框  ****************************************/
+.my-popup__overflow-hidden{overflow:hidden!important}
+.my-popup{
+  .my-popup__modal{ position:fixed;width:100%;height:100%;top:0;left:0;background-color:rgba(0,0,0,.7)}
+  .my-popup--auto{position:fixed;top:50%;left:50%;max-height:100%;overflow-y:auto;background-color:#fff;-webkit-transition:.2s ease-out;transition:.2s ease-out;-webkit-overflow-scrolling:touch;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0)}
+  .my-popup--top{width:100%;top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}
+  .my-popup--right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translate3d(0,-50%,0);transform:translate3d(0,-50%,0)}
+  .my-popup--bottom{width:100%;top:auto;bottom:0;right:auto;left:50%;-webkit-transform:translate3d(-50%,0,0);transform:translate3d(-50%,0,0)}
+  .my-popup--left{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translate3d(0,-50%,0);transform:translate3d(0,-50%,0)}
+}
+/******************************************* 弹框 是否确认 ****************************************/
+.my-confirm{  }
+.my-dialog {
+  min-width:250px;
+  max-width:350px;
+  font-size: 16px;
+  overflow: hidden;
+  -webkit-transition: .2s;
+  transition: .2s;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.my-dialog__content{
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.my-dialog__header{
+  padding: 15px 0 0;
+  text-align: center;
+}
+.my-dialog__message {
+  line-height: 1.5;
+  padding: 30px 20px;
+  text-align: center;
+}
+.my-dialog__message--has-title {
+  color: #999;
+  font-size: 14px;
+}
+.my-dialog__footer--buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.my-dialog__footer {
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.my-dialog__footer--buttons .my-button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+.my-button--large {
+  width: 100%;
+  height: 50px;
+  line-height: 48px;
+}
+.my-button {
+  position: relative;
+  padding: 0;
+  display: inline-block;
+  height: 45px;
+  line-height: 43px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+.my-button--default {
+  color: #333;
+  background-color: #fff;
+}
+.my-dialog__confirm, .my-dialog__confirm:active{
+  color:@color-theme
+}
+
+
+/*******************************************  下拉刷新  ****************************************/
+.my-pull-refresh{
+  user-select: none;
+  overflow: hidden
+}
+.my-pull-refresh__track{
+  position: relative;
+}
+.my-pull-refresh__head{
+  width: 100%;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: -50px;
+  font-size: 14px;
+  color: #999;
+  line-height: 50px;
+}
+
+/*******************************************  步进器  ****************************************/
+.my-search{
+  display: flex;height: 50px; align-items: center;
+}
+.my-search--inner{
+  flex: 1;
+  display: flex;
+}
+.my-search--message{
+  padding:0  10px;font-size: 16px;
+}
+.my-search--icon{ padding-right: 10px;}
+
+/*******************************************  步进器  ****************************************/
+.my-stepper{
+  display: inline-block;
+  .value{ padding: 0 5px }
+}
+/*******************************************  单选按钮  ****************************************/
+.my-radio{
+  display: inline-block;
+  .item{ display: inline-block ; color:#fff;padding: 6px 10px;background-color: @color-disabled ; margin-right:14px;margin-bottom:10px;border-radius: 4px;  }
+  .item.active{ background-color: @color-theme }
+}
+/******************************************* 布局 ****************************************/
+.my-rate{
+
+}
+/*******************************************  图片裁剪  ****************************************/
+.my-cropper{
+    width: 100%;height:100%;
+    &-modal{
+        width: 100%;height:100%;position: fixed;top:0;left:0;z-index: 1000;
+    }
+    &-btns{
+        position: absolute;bottom: 20px;left:0;width: 100%;
+        display: flex;justify-content: space-around;
+    }
+    &-btn{
+        width:80px;height:32px;background-color: #fff;
+        line-height: 32px;text-align: center;cursor: pointer;
+    }
+}
+
+/*******************************************  加载中  ****************************************/
+.my-spin{
+    display: inline-block;
+    stroke: #fff;
+    fill:#fff;
+    vertical-align: middle;
+    width:28px;height:28px;
+}
+
+/******************************************* 弹框 加载 上传中 ****************************************/
+.my-loading{
+    position: fixed;top:0;left:0;width: 100%;height:100%;
+    .my-loading__popup{
+        display: flex;width: 100%;height:100%;justify-content: center;align-items: center;background-color: rgba(0,0,0,0.1);
+    }
+}
+
+/******************************************* 弹框 是否确认 ****************************************/
+.my-confirm{
+    position: fixed;left:0;top:0;width: 100%;height:100%;background: rgba(0,0,0,0.5);z-index: 1000;
+    .my-confirm__content{
+        position: absolute;top:50%;left:50%;transform: translate(-50%,-50%);
+        width: 250px;height:150px;background-color: #fff;border-radius: 5px;
+    }
+}
+.my-confirm__active{
+    display: block;
+}
+/******************************************* 布局 ****************************************/
+/**** flex布局 ******/
+.my-flex{
+    display: flex;
+}
+.my-flex__col--1{  width: 1 / 24 * 100%  }
+.my-flex__col--2{  width: 2 / 24 * 100%  }
+.my-flex__col--3{  width: 3 / 24 * 100%  }
+.my-flex__col--4{  width: 4 / 24 * 100%  }
+.my-flex__col--5{  width: 5 / 24 * 100%  }
+.my-flex__col--6{  width: 6 / 24 * 100%  }
+.my-flex__col--7{  width: 7 / 24 * 100%  }
+.my-flex__col--8{  width: 8 / 24 * 100%  }
+.my-flex__col--9{  width: 9 / 24 * 100%  }
+.my-flex__col--10{  width: 10 / 24 * 100%  }
+.my-flex__col--11{  width: 11 / 24 * 100%  }
+.my-flex__col--12{  width: 12 / 24 * 100%  }
+.my-flex__col--13{  width: 13 / 24 * 100%  }
+.my-flex__col--14{  width: 14 / 24 * 100%  }
+.my-flex__col--15{  width: 15 / 24 * 100%  }
+.my-flex__col--16{  width: 16 / 24 * 100%  }
+.my-flex__col--17{  width: 17 / 24 * 100%  }
+.my-flex__col--18{  width: 18 / 24 * 100%  }
+.my-flex__col--19{  width: 19 / 24 * 100%  }
+.my-flex__col--20{  width: 20 / 24 * 100%  }
+.my-flex__col--21{  width: 21 / 24 * 100%  }
+.my-flex__col--22{  width: 22 / 24 * 100%  }
+.my-flex__col--23{  width: 23 / 24 * 100%  }
+.my-flex__col--24{  width: 24 / 24 * 100%  }
+.my-flex__col--auto{  flex:1  }
+.my-flex__col--fix{  flex: 0  }
+
+// justify-content属性定义了项目在主轴上的对齐方式。
+.my-flex__justify-content--center{  justify-content: center;  }
+.my-flex__justify-content--flex-start{  justify-content: flex-start;  }
+.my-flex__justify-content--flex-end{  justify-content: flex-end;  }
+.my-flex__justify-content--space-around{  justify-content: space-around;  }
+.my-flex__justify-content--space-between{  justify-content: space-between;  }
+
+// align-items属性定义项目在交叉轴上如何对齐
+.my-flex__align-items--center{  align-items: center }
+.my-flex__align-items--flex-start{  align-items: flex-start }
+.my-flex__align-items--flex-end{  align-items: flex-end }
+.my-flex__align-items--baseline {  align-items: baseline  }
+.my-flex__align-items--stretch{  align-items: stretch }
+
+//align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+.my-flex__align-content--center{ align-content: center}
+.my-flex__align-content--flex-start{ align-content: flex-start }
+.my-flex__align-content--flex-end{ align-content: flex-end }
+.my-flex__align-content--space-around{ align-content: space-around}
+.my-flex__align-content--space-between{ align-content: space-between}
+.my-flex__align-content--stretch{ align-content: stretch}
+
+//默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行
+.my-flex__flex-wrap--nowrap{ flex-wrap: nowrap }
+.my-flex__flex-wrap--wrap{ flex-wrap: wrap }
+.my-flex__flex-wrap--wrap-reverse{ flex-wrap: wrap-reverse }
+//flex-direction属性决定主轴的方向（即项目的排列方向）
+.my-flex__flex-direction--row{flex-direction: row}
+.my-flex__flex-direction--row-reverse{flex-direction: row-reverse}
+.my-flex__flex-direction--column{flex-direction: column}
+.my-flex__flex-direction--column-reverse{flex-direction: column-reverse}
+
+/****** table布局   ***********/
+.my-table{  display: table; width: 100%; border-collapse: collapse;background-color: #fff;  }
+.my-table__tr{  display: table-row;;  }
+.my-table__td{  display: table-cell; text-align: center;vertical-align: middle;border: 1px solid @color-border;padding: 5px;min-width: 50px;max-width: 400px;  }
+.my-table__th{  display: table-cell; text-align: center;vertical-align: middle;border: 1px solid @color-border;padding: 5px;  background-color: #fbfbfb;height:50px;  }
+/*设置固定宽度*/
+.my-table .my-btn{
+    margin: 2px;
+}
+/******************************************* 图片处理 ****************************************/
+.my-ratio{
+    position: relative;
+    height: 0;
+    width: 100%;
+}
+.my-ratio[data-ratio='10:7']{
+    padding-top:70%;
+}
+/************************************** image ************************************/
+img[src=""],img:not([src]){opacity:0;}
+.my-image{
+    display: block;width: 100%;height:100%;
+    background-position: center center;
+    background-color: rgba(0,0,0,0.02);
+
+    img{
+        display: block;width: 100%;height:100%;
+    }
+}
+// 加载失败显示的图片
+.my-image[data-type='normal']{
+    //.background('test1.jpg'); //morentouxiangxiao@3x
+}
+.my-image[data-type='head']{
+    //.background('morentouxiangxiao@3x.png'); //morentouxiangxiao@3x
+}
+
+//************************************************ 按钮  *****************************************/
+.my-btn{
+    display: inline-block;cursor: pointer; white-space:nowrap;font-weight: 800;
+}
+//普通文本按钮
+.my-btn__normal.my-btn--theme{  color:fade(@color-theme,90%);  }
+.my-btn__normal.my-btn--theme:hover{  color:fade(@color-theme,100%);  }
+
+.my-btn__normal.my-btn--info{  color:fade(@color-info,90%);  }
+.my-btn__normal.my-btn--info:hover{  color:fade(@color-info,100%);  }
+
+.my-btn__normal.my-btn--success{  color:fade(@color-success,90%);  }
+.my-btn__normal.my-btn--success:hover{  color:fade(@color-success,100%);  }
+
+.my-btn__normal.my-btn--warning{  color:fade(@color-warning,90%);  }
+.my-btn__normal.my-btn--warning:hover{  color:fade(@color-warning,100%);  }
+
+.my-btn__normal.my-btn--danger{  color:fade(@color-danger,90%);  }
+.my-btn__normal.my-btn--danger:hover{  color:fade(@color-danger,100%);  }
+
+.my-btn__normal.my-btn--gray{  color:fade(@color-gray,90%);  }
+.my-btn__normal.my-btn--gray:hover{  color:fade(@color-gray,100%);  }
+
+.my-btn__normal.my-btn--light{  color:fade(@color-light,90%);  }
+.my-btn__normal.my-btn--light:hover{  color:fade(@color-light,100%);  }
+
+.my-btn__normal.my-btn--dark{  color:fade(@color-dark,90%);  }
+.my-btn__normal.my-btn--dark:hover{  color:fade(@color-dark,100%);  }
+
+// 操作按钮
+.my-btn__md{height:30px;line-height: 30px; text-align: center; min-width:70px; padding: 0 10px;}
+.my-btn__md.my-btn--theme{  color:#ffffff;  background: fade(@color-theme,90%);  }
+.my-btn__md.my-btn--theme:hover{  background: fade(@color-theme,100%);  }
+
+.my-btn__md.my-btn--info{   color:#ffffff;  background: fade(@color-info,90%);  }
+.my-btn__md.my-btn--info:hover{  background: fade(@color-info,100%);  }
+
+.my-btn__md.my-btn--warning{  color:#ffffff;  background: fade(@color-warning,90%);  }
+.my-btn__md.my-btn--warning:hover{  background: fade(@color-warning,100%);  }
+
+.my-btn__md.my-btn--danger{   color:#ffffff;  background: fade(@color-danger,90%);  }
+.my-btn__md.my-btn--danger:hover{  background: fade(@color-danger,100%);  }
+
+.my-btn__md.my-btn--success{   color:#ffffff;  background: fade(@color-success,90%);  }
+.my-btn__md.my-btn--success:hover{  background: fade(@color-success,100%);  }
+
+.my-btn__md.my-btn--dark{   color:#ffffff;  background: fade(@color-dark,90%);  }
+.my-btn__md.my-btn--dark:hover{  background: fade(@color-dark,100%);  }
+
+.my-btn__md.my-btn--disabled{   color:#ffffff;  background: fade(#000,15%);  }
+
+.my-btn__md.my-btn__radius--lg{border-radius: 24px;}
+.my-btn__md.my-btn__radius--md{border-radius: 10px;}
+.my-btn__md.my-btn__radius--sm{border-radius: 5px;}
+
+// 提交按钮
+.my-btn__lg{height:42px;line-height: 42px; text-align: center; min-width:200px; padding: 0 10px;font-size: 16px;}
+.my-btn__lg.my-btn--theme{  color:#ffffff;  background: fade(@color-theme,90%);  }
+.my-btn__lg.my-btn--theme:hover{  background: fade(@color-theme,100%);  }
+
+.my-btn__lg.my-btn--info{   color:#ffffff;  background: fade(@color-info,90%);  }
+.my-btn__lg.my-btn--info:hover{  background: fade(@color-info,100%);  }
+
+.my-btn__lg.my-btn--warning{  color:#ffffff;  background: fade(@color-warning,90%);  }
+.my-btn__lg.my-btn--warning:hover{  background: fade(@color-warning,100%);  }
+
+.my-btn__lg.my-btn--danger{   color:#ffffff;  background: fade(@color-danger,90%);  }
+.my-btn__lg.my-btn--danger:hover{  background: fade(@color-danger,100%);  }
+
+.my-btn__lg.my-btn--success{   color:#ffffff;  background: fade(@color-success,90%);  }
+.my-btn__lg.my-btn--success:hover{  background: fade(@color-success,100%);  }
+
+.my-btn__lg.my-btn--dark{   color:#ffffff;  background: fade(@color-dark,90%);  }
+.my-btn__lg.my-btn--dark:hover{  background: fade(@color-dark,100%);  }
+
+.my-btn__lg.my-btn--disabled{   color:#ffffff;  background: fade(#000,15%);  }
+
+.my-btn__lg.my-btn__radius--lg{border-radius: 30px;}
+.my-btn__lg.my-btn__radius--md{border-radius: 10px;}
+.my-btn__lg.my-btn__radius--sm{border-radius: 5px;}
+
+//************************************************ v 2.0  *****************************************/
+.my-btn[data-radius-type='circle']{border-radius: 30px;}
+.my-btn[data-radius-type='circle']{border-radius: 30px;}
+
+.my-btn[data-type='normal']{  }
+.my-btn[data-type='normal'][data-status='theme']{ color:fade(@color-theme,95%); }
+.my-btn[data-type='normal'][data-status='theme']:hover{ color:fade(@color-theme,100%); }
+.my-btn[data-type='normal'][data-status='info']{ color:fade(@color-info,95%); }
+.my-btn[data-type='normal'][data-status='info']:hover{ color:fade(@color-info,100%); }
+.my-btn[data-type='normal'][data-status='success']{ color:fade(@color-success,95%); }
+.my-btn[data-type='normal'][data-status='success']:hover{ color:fade(@color-success,100%); }
+.my-btn[data-type='normal'][data-status='warning']{ color:fade(@color-warning,95%); }
+.my-btn[data-type='normal'][data-status='warning']:hover{ color:fade(@color-warning,100%); }
+.my-btn[data-type='normal'][data-status='danger']{ color:fade(@color-danger,95%); }
+.my-btn[data-type='normal'][data-status='danger']:hover{ color:fade(@color-danger,100%); }
+.my-btn[data-type='normal'][data-status='dark']{ color:fade(@color-dark,95%); }
+.my-btn[data-type='normal'][data-status='dark']:hover{ color:fade(@color-dark,100%); }
+
+.my-btn[data-type='operate']{ padding: 4px 10px }
+.my-btn[data-type='operate'][data-status='theme']{ color:#ffffff;  background: fade(@color-theme,95%); }
+.my-btn[data-type='operate'][data-status='theme']:hover{ color:#ffffff;  background: fade(@color-theme,100%); }
+.my-btn[data-type='operate'][data-status='info']{ color:#ffffff;  background: fade(@color-info,95%); }
+.my-btn[data-type='operate'][data-status='info']:hover{ color:#ffffff;  background: fade(@color-info,100%); }
+.my-btn[data-type='operate'][data-status='success']{ color:#ffffff;  background: fade(@color-success,95%); }
+.my-btn[data-type='operate'][data-status='success']:hover{ color:#ffffff;  background: fade(@color-success,100%); }
+.my-btn[data-type='operate'][data-status='warning']{ color:#ffffff;  background: fade(@color-warning,95%); }
+.my-btn[data-type='operate'][data-status='warning']:hover{ color:#ffffff;  background: fade(@color-warning,100%); }
+.my-btn[data-type='operate'][data-status='danger']{ color:#ffffff;  background: fade(@color-danger,95%); }
+.my-btn[data-type='operate'][data-status='danger']:hover{ color:#ffffff;  background: fade(@color-danger,100%); }
+.my-btn[data-type='operate'][data-status='dark']{ color:#ffffff;  background: fade(@color-dark,95%); }
+.my-btn[data-type='operate'][data-status='dark']:hover{ color:#ffffff;  background: fade(@color-dark,100%); }
+
+.my-btn[data-type='submit']{ height:30px;width:100px; line-height: 30px;text-align: center}
+.my-btn[data-type='submit'][data-status='theme']{ color:#ffffff;  background: fade(@color-theme,95%); }
+.my-btn[data-type='submit'][data-status='theme']:hover{ color:#ffffff;  background: fade(@color-theme,100%); }
+.my-btn[data-type='submit'][data-status='info']{ color:#ffffff;  background: fade(@color-info,95%); }
+.my-btn[data-type='submit'][data-status='info']:hover{ color:#ffffff;  background: fade(@color-info,100%); }
+.my-btn[data-type='submit'][data-status='success']{ color:#ffffff;  background: fade(@color-success,95%); }
+.my-btn[data-type='submit'][data-status='success']:hover{ color:#ffffff;  background: fade(@color-success,100%); }
+.my-btn[data-type='submit'][data-status='warning']{ color:#ffffff;  background: fade(@color-warning,95%); }
+.my-btn[data-type='submit'][data-status='warning']:hover{ color:#ffffff;  background: fade(@color-warning,100%); }
+.my-btn[data-type='submit'][data-status='danger']{ color:#ffffff;  background: fade(@color-danger,95%); }
+.my-btn[data-type='submit'][data-status='danger']:hover{ color:#ffffff;  background: fade(@color-danger,100%); }
+.my-btn[data-type='submit'][data-status='dark']{ color:#ffffff;  background: fade(@color-dark,95%); }
+.my-btn[data-type='submit'][data-status='dark']:hover{ color:#ffffff;  background: fade(@color-dark,100%); }

@@ -1,0 +1,97 @@
+.van-tabs__line {
+  background-color: #ff4c00;
+  height: 3px;
+  border-radius: 3px;
+}
+.van-tabs--line {
+  padding-top: 50px;
+}
+.van-tab.van-tab--active {
+  color: #ff4c00;
+  font-size: 14px;
+}
+.van-tab {
+  font-size: 14px;
+  line-height: 50px;
+  background-color: #fff;
+}
+.van-tabs--line .van-tabs__wrap {
+  height: 50px;
+}
+.van-tab span {
+  font-weight: 800;
+}
+.van-cell {
+  padding: 0;
+}
+.van-field__control {
+  font-weight: 800;
+  font-size: 14px;
+}
+.van-field__control::placeholder {
+  font-weight: 200;
+  font-size: 14px;
+  color: #cecece;
+}
+textarea.van-field__control {
+  font-weight: 800;
+  font-size: 14px;
+}
+.van-picker__cancel,
+.van-picker__confirm {
+  color: #ff4c00;
+}
+.van-dialog__message {
+  text-align: center;
+}
+.van-dialog {
+  border-radius: 15px;
+}
+.van-dialog__message {
+  padding: 40px 20px;
+}
+.van-dialog__confirm,
+.van-dialog__confirm:active {
+  color: #ff4c00;
+}
+.van-switch--on {
+  background-color: #ff4c00;
+}
+.van-toast {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.van-toast--text {
+  min-width: 100px;
+}
+.van-popup--right {
+  width: 100%;
+  height: 100%;
+}
+.van-swipe__indicators {
+  bottom: 30px;
+}
+.mint-swipe-indicators {
+  bottom: 30px;
+}
+.mint-swipe-indicator,
+.van-swipe__indicator {
+  height: 8px;
+  width: 8px;
+  opacity: 1;
+  background-color: #cecece;
+}
+.mint-swipe-indicator.is-active,
+.van-swipe__indicator--active {
+  background-color: #fff;
+}
+.swiper-pagination-bullet {
+  background: #cecece;
+}
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 20px;
+}

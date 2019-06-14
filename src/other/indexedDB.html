@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  function remove(ary,fn){
+    if( ary.length == 0 ) return false;
+    let arr = [];
+    //debugger
+    for( var n = 0 ; n < ary.length ;n++){
+      let ret = fn.call(this,ary[n],n);
+      if(!ret){
+        arr.push(ary[n])
+      }
+    }
+    return arr
+  }
+
+  var a = ['1','2','3','4'];
+  var b = 2
+  let arr = remove(a,function(item,i){
+    return   item == b
+  })
+
+  console.log(arr)
+</script>
+
+</html>

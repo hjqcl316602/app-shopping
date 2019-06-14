@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "arial_bb";
+  src:url('arial_bb.ttf?t=1533366174452') format('truetype')
+}
+.com-text--number {
+  font-family:"arial_bb" !important;
+  font-size:14px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

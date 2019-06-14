@@ -1,0 +1,397 @@
+
+@import "theme";
+
+//************************************************************************ 文本  ****************************************************************************************/
+.com-text{ line-height: 1 ; color: @color-dark ; font-size: 14px;}
+//字体大小
+.com-text--no        { font-size: 0 }
+.com-text--mi        { font-size: 10px }
+.com-text--mi-sm     { font-size: 11px }
+.com-text--sm        { font-size: 12px }
+.com-text--sm-md     { font-size: 13px }
+.com-text--md        { font-size: 14px }
+.com-text--md-lg     { font-size: 15px }
+.com-text--lg        { font-size: 16px }
+.com-text--lg-xl     { font-size: 17px }
+.com-text--xl        { font-size: 18px }
+.com-text--xl-x      { font-size: 20px }
+.com-text--xl-xx     { font-size: 24px }
+.com-text--xl-xxx    { font-size: 30px }
+.com-text--xl-xxxx    { font-size: 40px }
+
+//字体颜色
+.com-text--theme     {  color:@color-theme  }        // 主色
+.com-text--aux     {  color:@color-aux  }        // 主色
+.com-text--aux--yellow     {  color:@color-aux--yellow  }        // 主色
+.com-text--theme-light     {  color:@color-theme-light  }        // 主色浅
+.com-text--warning   {  color:@color-warning  }      // 警告
+.com-text--danger    {  color:@color-danger  }       // 危险
+.com-text--success   {  color:@color-success  }      // 成功
+.com-text--info      {  color:@color-info  }         // 替换样式
+.com-text--dark      {  color:@color-dark  }        // 黑色
+.com-text--light     {  color:@color-light  }        // 浅灰
+.com-text--gray      {  color:@color-gray  }         //深灰
+.com-text--white     {  color:@color-white  }        //白色
+.com-text--white-gray     {  color:fade(@color-white ,50) }        //白色 - 透明度
+.com-text--white-light     {  color:fade(@color-white ,70) }        //白色 - 透明度
+.com-text--gray-border     {  color:@color-border }               //白色 - 透明度
+.com-text--black     {  color:#000  }                     //黑色
+
+// 居中对齐方式
+.com-text--center{  text-align: center;  }
+.com-text--left  {  text-align: left;  }
+.com-text--right {  text-align: right;  }
+// 加粗
+.com-text--bold      {  font-weight: 800; }
+//倾斜
+.com-text--italic{ font-style:italic; }
+//文本缩进
+.com-text__indent--sm{  text-indent: 5px}
+.com-text__indent,
+.com-text__indent--md{  text-indent: 10px }
+//文本换行方式
+.com-text__wrap--nowrap  {  white-space:nowrap; }  // 不换行
+.com-text__wrap--normal  {  word-wrap: break-word; word-break: normal; }  // 自动换行
+.com-text__wrap--break   {  word-break:break-all; }  // 强制换行
+//行高
+.com-text__height--mi  { line-height: 1 }
+.com-text__height--sm  { line-height: 1.2 }
+.com-text__height,
+.com-text__height--md  { line-height: 1.5 }
+.com-text__height--lg  { line-height: 2 }
+.com-text__height--xl  { line-height: 2.5 }
+//可ap
+.com-text--ellipsis{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;} // 只能用于非flex布局
+.com-text__visible--one {-webkit-line-clamp: 1; display: -webkit-box;  overflow: hidden; -webkit-box-orient: vertical;  }  /**/
+.com-text__visible--two { -webkit-line-clamp: 2; display: -webkit-box;  overflow: hidden; -webkit-box-orient: vertical;      }
+
+//************************************************************************ 图片盒子 处理  *****************************************/
+.com-ratio{  position: relative;  height: 0;  width: 100%;  }
+.com-ratio[data-ratio='2:1']{  padding-top:50%;  }
+.com-ratio__task{  position: absolute;left:0;top:0;width: 100%;height:100%;background-size: 100%;background-position: center;  }
+
+//************************************************************************ 按钮  ****************************************************************************************/
+.com-btn { display: inline-block ; cursor: pointer ; white-space:nowrap; }
+
+//************************************************************************ icon  ****************************************************************************************/
+.com-icon { font-size: 0;  height:14px;  width: 14px; vertical-align: middle;  line-height: 1;  background-position: center ;  background-size:  auto 14px ; }
+
+//************************************************************************ 清除浮动  ****************************************************************************************/
+.com-clear:after   { display:block;clear:both;content:"";visibility:hidden;height:0}
+.com-clear:before  { display:block;clear:both;content:"";visibility:hidden;height:0}
+
+//************************************************************************ 布局方式  ****************************************************************************************/
+.com-box,
+.com-box--flex   { display: flex ; }
+.com-box--inline { display: inline ; }
+.com-box--inline-block{ display: inline-block ; font-size: 0 ; vertical-align: middle;  }  // 处理 icon 和文字不能在一条线上
+.com-box--block  { display: block ; }
+.com-box--table  { display: table ; }
+.com-box--table-row { display: table-row ; }
+.com-box--table-cell { display: table-cell ; }
+
+//************************************************************************ 栅格化 布局  ****************************************************************************************/
+.com-row::before {     display: table;  content: " "  ;  clear: both;}
+.com-row::after {     display: table;  content: " "  ;  clear: both;}
+.com-row[data-gutter='10']{ margin-left: -5px;margin-right: -5px;}
+.com-row[data-gutter='10'] [class*=com-col-]{ padding-left: 5px;padding-right: 5px;}
+.com-row[data-gutter='20']{ margin-left: -10px;margin-right: -10px;}
+.com-row[data-gutter='20'] [class*=com-col-]{ padding-left: 10px;padding-right: 10px;}
+
+
+.com-col--01{ float: left ;position: relative;  min-height: 1px ; width: 1 / 24 * 100%  }
+.com-col--02{ float: left ;position: relative;  min-height: 1px ; width: 2 / 24 * 100%  }
+.com-col--03{ float: left ;position: relative;  min-height: 1px ; width: 3 / 24 * 100%  }
+.com-col--04{ float: left ;position: relative;  min-height: 1px ; width: 4 / 24 * 100%  }
+.com-col--05{ float: left ;position: relative;  min-height: 1px ; width: 5 / 24 * 100%  }
+.com-col--06{ float: left ;position: relative;  min-height: 1px ; width: 6 / 24 * 100%  }
+.com-col--07{ float: left ;position: relative;  min-height: 1px ; width: 7 / 24 * 100%  }
+.com-col--08{ float: left ;position: relative;  min-height: 1px ; width: 8 / 24 * 100%  }
+.com-col--09{ float: left ;position: relative;  min-height: 1px ; width: 9 / 24 * 100%  }
+.com-col--10{ float: left ;position: relative;  min-height: 1px ; width: 10 / 24 * 100%  }
+.com-col--11{ float: left ;position: relative;  min-height: 1px ; width: 11 / 24 * 100%  }
+.com-col--12{ float: left ;position: relative;  min-height: 1px ; width: 12 / 24 * 100%  }
+.com-col--13{ float: left ;position: relative;  min-height: 1px ; width: 13 / 24 * 100%  }
+.com-col--14{ float: left ;position: relative;  min-height: 1px ; width: 14 / 24 * 100%  }
+.com-col--15{ float: left ;position: relative;  min-height: 1px ; width: 15 / 24 * 100%  }
+.com-col--16{ float: left ;position: relative;  min-height: 1px ; width: 16 / 24 * 100%  }
+.com-col--17{ float: left ;position: relative;  min-height: 1px ; width: 17 / 24 * 100%  }
+.com-col--18{ float: left ;position: relative;  min-height: 1px ; width: 18 / 24 * 100%  }
+.com-col--19{ float: left ;position: relative;  min-height: 1px ; width: 19 / 24 * 100%  }
+.com-col--20{ float: left ;position: relative;  min-height: 1px ; width: 20 / 24 * 100%  }
+.com-col--21{ float: left ;position: relative;  min-height: 1px ; width: 21 / 24 * 100%  }
+.com-col--22{ float: left ;position: relative;  min-height: 1px ; width: 22 / 24 * 100%  }
+.com-col--23{ float: left ;position: relative;  min-height: 1px ; width: 23 / 24 * 100%  }
+.com-col--24{ float: left ;position: relative;  min-height: 1px ; width: 24 / 24 * 100%  }
+
+.com-col--offset-01{  margin-left: 1 / 24 * 100%  }
+.com-col--offset-02{  margin-left: 2 / 24 * 100%  }
+.com-col--offset-03{  margin-left: 3 / 24 * 100%  }
+.com-col--offset-04{  margin-left: 4 / 24 * 100%  }
+.com-col--offset-05{  margin-left: 5 / 24 * 100%  }
+.com-col--offset-06{  margin-left: 6 / 24 * 100%  }
+.com-col--offset-07{  margin-left: 7 / 24 * 100%  }
+.com-col--offset-08{  margin-left: 8 / 24 * 100%  }
+.com-col--offset-09{  margin-left: 9 / 24 * 100%  }
+.com-col--offset-10{  margin-left: 10 / 24 * 100%  }
+.com-col--offset-11{  margin-left: 11 / 24 * 100%  }
+.com-col--offset-12{  margin-left: 12 / 24 * 100%  }
+.com-col--offset-13{  margin-left: 13 / 24 * 100%  }
+.com-col--offset-14{  margin-left: 14 / 24 * 100%  }
+.com-col--offset-15{  margin-left: 15 / 24 * 100%  }
+.com-col--offset-16{  margin-left: 16 / 24 * 100%  }
+.com-col--offset-17{  margin-left: 17 / 24 * 100%  }
+.com-col--offset-18{  margin-left: 18 / 24 * 100%  }
+.com-col--offset-19{  margin-left: 19 / 24 * 100%  }
+.com-col--offset-20{  margin-left: 20 / 24 * 100%  }
+.com-col--offset-21{  margin-left: 21 / 24 * 100%  }
+.com-col--offset-22{  margin-left: 22 / 24 * 100%  }
+.com-col--offset-23{  margin-left: 23 / 24 * 100%  }
+.com-col--offset-24{  margin-left: 24 / 24 * 100%  }
+
+//************************************************************************ flex 布局  ****************************************************************************************/
+.com-flex { display: flex }
+.com-flex__col--1{  width: 1 / 24 * 100%  }
+.com-flex__col--2{  width: 2 / 24 * 100%  }
+.com-flex__col--3{  width: 3 / 24 * 100%  }
+.com-flex__col--4{  width: 4 / 24 * 100%  }
+.com-flex__col--5{  width: 5 / 24 * 100%  }
+.com-flex__col--6{  width: 6 / 24 * 100%  }
+.com-flex__col--7{  width: 7 / 24 * 100%  }
+.com-flex__col--8{  width: 8 / 24 * 100%  }
+.com-flex__col--9{  width: 9 / 24 * 100%  }
+.com-flex__col--10{  width: 10 / 24 * 100%  }
+.com-flex__col--11{  width: 11 / 24 * 100%  }
+.com-flex__col--12{  width: 12 / 24 * 100%  }
+.com-flex__col--13{  width: 13 / 24 * 100%  }
+.com-flex__col--14{  width: 14 / 24 * 100%  }
+.com-flex__col--15{  width: 15 / 24 * 100%  }
+.com-flex__col--16{  width: 16 / 24 * 100%  }
+.com-flex__col--17{  width: 17 / 24 * 100%  }
+.com-flex__col--18{  width: 18 / 24 * 100%  }
+.com-flex__col--19{  width: 19 / 24 * 100%  }
+.com-flex__col--20{  width: 20 / 24 * 100%  }
+.com-flex__col--21{  width: 21 / 24 * 100%  }
+.com-flex__col--22{  width: 22 / 24 * 100%  }
+.com-flex__col--23{  width: 23 / 24 * 100%  }
+.com-flex__col--24{  width: 24 / 24 * 100%  }
+.com-flex__col--ao{  flex:1  }
+.com-flex__col--fx{  flex: 0  }
+
+// 常用 垂直水平居中
+.com-flex--center{display: flex; justify-content: center; align-items: center }
+
+// justify-content属性定义了项目在主轴上的对齐方式。
+.com-content--center{  justify-content: center;  }
+.com-content--start{  justify-content: flex-start;  }
+.com-content--end{  justify-content: flex-end;  }
+.com-content--around{  justify-content: space-around;  }
+.com-content--between{  justify-content: space-between;  }
+// align-items属性定义项目在交叉轴上如何对齐
+.com-items--center{  align-items: center }
+.com-items--start{  align-items: flex-start }
+.com-items--end{  align-items: flex-end }
+.com-items--baseline {  align-items: baseline  }
+.com-items--stretch{  align-items: stretch }
+//align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+.com-align-content--center{ align-content: center}
+.com-align-content--start{ align-content: flex-start }
+.com-align-content--end{ align-content: flex-end }
+.com-align-content--around{ align-content: space-around}
+.com-align-content--between{ align-content: space-between}
+.com-align-content--stretch{ align-content: stretch}
+//默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行
+.com-wrap--nowrap{ flex-wrap: nowrap }
+.com-wrap{ flex-wrap: wrap }
+.com-wrap-reverse{ flex-wrap: wrap-reverse  }
+
+//flex-direction属性决定主轴的方向（即项目的排列方向）
+.com-direction--row{flex-direction: row}
+.com-direction--row-reverse{flex-direction: row-reverse}
+.com-direction--column{flex-direction: column}
+.com-direction--column-reverse{flex-direction: column-reverse}
+
+//************************************************************************ table 布局  ****************************************************************************************/.my-table{  display: table; width: 100%; border-collapse: collapse;background-color: #fff;  }
+.com-table { display: table;border-collapse: collapse;  border-spacing: 0; width: 100% ;}
+.com-table--tr { display: table-row; }
+.com-table--td { display: table-cell; text-align: center;vertical-align: middle; padding: 10px; min-width: 50px;max-width: 400px;border-right: 1px solid #fff; }
+.com-table--th { display: table-cell; text-align: center;vertical-align: middle; padding: 10px;  background-color:#585870; border-right: 1px solid #fff;  }
+.com-table--tr:nth-child(2n){background-color: #F6F7FB }
+.com-table--tr:nth-child(2n+1){background-color: #EBEEF7 }
+//************************************************************************ 阴影  ****************************************************************************************/
+.com-shadow             { box-shadow: 1px 1px 1px rgba(0,0,0,0.05);}
+.com-shadow--top        {  box-shadow: 0 -1px 1px rgba(0,0,0,0.05);  }
+.com-shadow--right      {  box-shadow: -1px 0  1px rgba(0,0,0,0.05);  }
+.com-shadow--bottom     {  box-shadow: 0 1px 1px rgba(0,0,0,0.05);  }
+.com-shadow--left       {  box-shadow: -1px 0 1px rgba(0,0,0,0.05) ; }
+
+//************************************************************************ cell  ****************************************************************************************/
+.com-cell--mi{  min-height:30px;}
+.com-cell--sm{  min-height:40px;}
+.com-cell,
+.com-cell--md{  min-height:50px;}
+.com-cell--lg{  min-height:60px;}
+.com-cell--xl{  min-height:70px;}
+
+//************************************************************************ 渐变  ****************************************************************************************/
+
+.com-gradient{  background-image:linear-gradient(to bottom,@color-theme,#efefef);  }
+//************************************************************************ 背景颜色  ****************************************************************************************/
+.com-background  {  background-color: #ffffff } ;
+.com-background--gray  {  background-color: @color-bg } ;
+.com-background--theme {  background-color: @color-theme } ;
+.com-background--notice  {  background-color: #fefcee } ;
+.com-background--danger  {  background-color: @color-danger } ;
+.com-background--aux-yellow  {  background-color: @color-aux--yellow } ;
+.com-background--assist  {  background-color: @color-assist } ;
+
+//************************************************************************ list-style  ****************************************************************************************/
+.com-list-style--disc{ list-style: disc inside }
+
+//************************************************************************ 边距和内边距  ****************************************************************************************/
+.com-margin      {  margin-left: @margin; margin-right: @margin; margin-top: @margin; margin-bottom: @margin;  }
+.com-margin--lt{  margin-left: @margin;}
+.com-margin--rt{  margin-right: @margin;}
+.com-margin--tp{  margin-top: @margin;}
+.com-margin--bm{  margin-bottom: @margin;}
+.com-margin--ad{  margin-left:  @margin  ; margin-right: @margin  }
+.com-margin--ud{  margin-top:  @margin ;margin-bottom: @margin }
+
+.com-margin__lg      {  margin-left: @margin*2; margin-right: @margin*2; margin-top: @margin*2; margin-bottom: @margin*2;  }
+.com-margin__lg--lt{  margin-left: @margin*2;}
+.com-margin__lg--rt{  margin-right: @margin*2;}
+.com-margin__lg--tp{  margin-top: @margin*2;}
+.com-margin__lg--bm{  margin-bottom: @margin*2;}
+.com-margin__lg--ad{  margin-left:  @margin*2  ; margin-right: @margin*2  }
+.com-margin__lg--ud{  margin-top:  @margin*2 ;margin-bottom: @margin*2 }
+
+.com-margin__xl      {  margin-left: @margin*4; margin-right: @margin*4; margin-top: @margin*4; margin-bottom: @margin*4;  }
+.com-margin__xl--lt{  margin-left: @margin*4;}
+.com-margin__xl--rt{  margin-right: @margin*4;}
+.com-margin__xl--tp{  margin-top: @margin*4;}
+.com-margin__xl--bm{  margin-bottom: @margin*4;}
+.com-margin__xl--ad{  margin-left:  @margin*4  ; margin-right: @margin*4  }
+.com-margin__xl--ud{  margin-top:  @margin*4 ;margin-bottom: @margin*4 }
+
+.com-margin__sm      {  margin-left: @margin/2; margin-right: @margin/2; margin-top: @margin/2; margin-bottom: @margin/2;  }
+.com-margin__sm--lt{  margin-left: @margin/2;}
+.com-margin__sm--rt{  margin-right: @margin/2;}
+.com-margin__sm--tp{  margin-top: @margin/2;}
+.com-margin__sm--bm{  margin-bottom: @margin/2;}
+.com-margin__sm--ad{  margin-left:  @margin/2  ; margin-right: @margin/2  }
+.com-margin__sm--ud{  margin-top:  @margin/2 ;margin-bottom: @margin/2 }
+
+
+.com-padding      {  padding-left: @padding; padding-right: @padding; padding-top: @padding; padding-bottom: @padding;  }
+.com-padding--lt{  padding-left: @padding;}
+.com-padding--rt{  padding-right: @padding;}
+.com-padding--tp{  padding-top: @padding;}
+.com-padding--bm{  padding-bottom: @padding;}
+.com-padding--ad{  padding-left:  @padding  ; padding-right: @padding  }
+.com-padding--ud{  padding-top:  @padding ;padding-bottom: @padding }
+
+.com-padding__sm      {  padding-left: @padding / 2; padding-right: @padding / 2; padding-top: @padding / 2; padding-bottom: @padding / 2;  }
+.com-padding__sm--lt{  padding-left: @padding / 2;}
+.com-padding__sm--rt{  padding-right: @padding / 2;}
+.com-padding__sm--tp{  padding-top: @padding / 2;}
+.com-padding__sm--bm{  padding-bottom: @padding / 2;}
+.com-padding__sm--ad{  padding-left:  @padding / 2  ; padding-right: @padding / 2  }
+.com-padding__sm--ud{  padding-top:  @padding / 2 ;padding-bottom: @padding / 2 }
+
+
+.com-padding__lg      {  padding-left: @padding*2; padding-right: @padding*2; padding-top: @padding*2; padding-bottom: @padding*2;  }
+.com-padding__lg--lt{  padding-left: @padding*2;}
+.com-padding__lg--rt{  padding-right: @padding*2;}
+.com-padding__lg--tp{  padding-top: @padding*2;}
+.com-padding__lg--bm{  padding-bottom: @padding*2;}
+.com-padding__lg--ad{  padding-left:  @padding*2  ; padding-right: @padding*2  }
+.com-padding__lg--ud{  padding-top:  @padding*2 ;padding-bottom: @padding*2 }
+
+.com-padding__xl      {  padding-left: @padding*4; padding-right: @padding*4; padding-top: @padding*4; padding-bottom: @padding*4;  }
+.com-padding__xl--lt{  padding-left: @padding*4;}
+.com-padding__xl--rt{  padding-right: @padding*4;}
+.com-padding__xl--tp{  padding-top: @padding*4;}
+.com-padding__xl--bm{  padding-bottom: @padding*4;}
+.com-padding__xl--ad{  padding-left:  @padding*4  ; padding-right: @padding*4  }
+.com-padding__xl--ud{  padding-top:  @padding*4 ;padding-bottom: @padding*4 }
+
+
+//************************************************************************ border-radius  ****************************************************************************************/
+.com-radius--ms{ border-radius:  2px; }
+.com-radius,
+.com-radius--md{ border-radius:  4px; }
+.com-radius--lg{ border-radius:  10px; }
+.com-radius--ce{ border-radius:  100%; }
+
+//************************************************************************ overflow  ****************************************************************************************/
+.com-overflow,
+.com-overflow--ao { overflow: auto ; }
+.com-overflow--hn  { overflow: hidden };
+
+//************************************************************************ cover  ****************************************************************************************/
+.com-cover   { width: 100%;height:100% ; }
+.com-cover--vh   { height: 100% ; }
+.com-cover--vw   { width: 100% ; };
+.com-fluid    { height: 100vh ;width:100vw }
+.com-fluid--vw   { width: 100vw ; };
+.com-fluid--vh   { height: 100vh ; };
+//************************************************************************ 相对位置  ****************************************************************************************/
+.com-position,
+.com-position--re { position: relative }
+.com-position--fd { position: fixed; }
+.com-position--ae { position: absolute; }
+.com-position--lt-tp   {  left:0;top: 0 }
+.com-position--rt-tp   {  right:0;top: 0 }
+.com-position--lf-bm   {  left:0;bottom: 0 }
+.com-position--lf-bm   {  right:0;bottom: 0 }
+
+//************************************************************************ border 手机端 *****************************************/
+
+
+.com-border--dashed,
+.com-border--ud,
+.com-border--bm,
+.com-border--lt,
+.com-border--rt,
+.com-border--tp,
+.com-border{  position: relative; }
+
+[class*=com-border--]:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  -webkit-transform: scale(0.25);
+  transform: scale(0.25);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.com-border:after{  border: 1px solid @color-line;  }
+.com-border--bm:after{  border-bottom:1px solid @color-line;  }
+.com-border--tp:after{  border-top:1px solid @color-line;  }
+.com-border--lt:after{  border-left:1px solid @color-line;  }
+.com-border--rt:after{  border-right:1px solid @color-line;  }
+.com-border--ud:after{  border-bottom:1px solid @color-line; border-top:1px solid @color-line; }
+.com-border--dashed:after{  border-style: dashed;  }
+
+.com-border--bm.white:after{  border-bottom:1px solid @color-white;  }
+.com-border--tp.white:after{  border-top:1px solid @color-white;  }
+.com-border--lt.white:after{  border-left:1px solid @color-white;  }
+.com-border--rt.white:after{  border-right:1px solid @color-white;  }
+/* 电脑端
+.my-border{  border: 1px solid @color-border;  }
+.my-border--none{  border: none;  }
+.my-border__top{  border-top: 1px solid @color-border;  }
+.my-border__top--none{  border-top: none;  }
+.my-border__bottom{  border-bottom: 1px solid @color-border;  }
+.my-border__bottom--none{  border-bottom:none;  }
+.my-border__left{  border-left: 1px solid @color-border;  }
+.my-border__left--none{  border-left: none;  }
+.my-border__right{  border-right: 1px solid @color-border;  }
+.my-border__right--none{  border-right: none;  }*/
